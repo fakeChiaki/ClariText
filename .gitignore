@@ -1,0 +1,56 @@
+# ========== SISTEMA OPERATIVO ==========
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Linux
+.directory
+.Trash-*
+
+# ========== EDITORES DE CÓDIGO ==========
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ========== NODE.JS ==========
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+
+# Lockfiles de gestores que no usamos (npm sí se commitea)
+yarn.lock
+pnpm-lock.yaml
+
+# ========== BUILD Y DISTRIBUCIÓN ==========
+dist/
+build/
+out/
+*.zip
+*.crx
+*.pem
+
+# ========== ARCHIVOS TEMPORALES ==========
+*.log
+*.tmp
+.cache/
+
+# ========== ARCHIVOS LOCALES DEL DESARROLLADOR ==========
+.env
+.env.local
+config.local.js
+notas-personales.md
+
+# ========== TESTS Y COBERTURA ==========
+coverage/
+.nyc_output/
+
+# Bundle generado por esbuild
+src/content/content.bundle.js
+# Notas personales del desarrollador (no forman parte del proyecto)
+notas/

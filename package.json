@@ -1,0 +1,51 @@
+{
+  "name": "claritext",
+  "version": "0.2.0",
+  "description": "Extensión de navegador Chromium para personas con dislexia y TDAH. Lectura por voz, personalización visual y herramientas de accesibilidad.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "npm install && npm run build",
+    "build": "esbuild src/content/bootstrap.js --bundle --format=iife --target=chrome120 --outfile=src/content/content.bundle.js",
+    "build:watch": "esbuild src/content/bootstrap.js --bundle --format=iife --target=chrome120 --outfile=src/content/content.bundle.js --watch",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write \"src/**/*.{js,html,css,json}\" \"docs/**/*.md\" \"*.md\"",
+    "format:check": "prettier --check \"src/**/*.{js,html,css,json}\" \"docs/**/*.md\" \"*.md\"",
+    "validate:manifest": "node -e \"JSON.parse(require('fs').readFileSync('src/manifest.json','utf8'))\" && echo manifest.json OK",
+    "check": "npm run lint && npm run format:check && npm run validate:manifest && npm run build"
+  },
+  "keywords": [
+    "chrome-extension",
+    "accessibility",
+    "dyslexia",
+    "tdah",
+    "adhd",
+    "text-to-speech",
+    "tts",
+    "manifest-v3"
+  ],
+  "author": "Diego López <DiegoGremory@users.noreply.github.com> (https://github.com/DiegoGremory)",
+  "contributors": [
+    "Carlos",
+    "Sebastián",
+    "Bastián"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DiegoGremory/claritext.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DiegoGremory/claritext/issues"
+  },
+  "homepage": "https://github.com/DiegoGremory/claritext#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5"
+  }
+}

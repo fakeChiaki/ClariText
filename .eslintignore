@@ -1,0 +1,6 @@
+# Bundle generado por esbuild en tiempo de build. No es código fuente.
+# El código real está en src/content/bootstrap.js y los módulos que importa.
+src/content/content.bundle.js
+
+# Dependencias y artefactos
+node_modules/

@@ -1,0 +1,42 @@
+# ============================================================
+# Normalización de finales de línea (EOL) para todo el repositorio.
+# ============================================================
+
+# Comportamiento por defecto: detectar texto vs binario y
+# normalizar a LF al guardar en el repositorio.
+* text=auto eol=lf
+
+# ============================================================
+# Archivos de texto explícitos (forzar LF siempre)
+# ============================================================
+*.js     text eol=lf
+*.json   text eol=lf
+*.html   text eol=lf
+*.css    text eol=lf
+*.md     text eol=lf
+*.yml    text eol=lf
+*.yaml   text eol=lf
+*.txt    text eol=lf
+*.sh     text eol=lf
+
+# ============================================================
+# Archivos binarios (Git no debe tocarlos)
+# ============================================================
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.svg    binary
+*.zip    binary
+*.crx    binary
+*.pdf    binary
+*.pem    binary
+
+# ============================================================
+# Archivos específicos de Windows que SÍ deben mantener CRLF
+# (scripts de PowerShell y batch los exigen para funcionar)
+# ============================================================
+*.bat    text eol=crlf
+*.cmd    text eol=crlf
+*.ps1    text eol=crlf

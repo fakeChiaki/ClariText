@@ -1,0 +1,55 @@
+name: CI
+
+# ============================================================
+# Workflow de Integración Continua para ClariText.
+#
+# Se ejecuta automáticamente en:
+#  - Cada push a las ramas main, develop o cualquier rama feature/*
+#  - Cada Pull Request hacia main o develop
+#
+# Validaciones que realiza:
+#  - Sintaxis del manifest.json (Manifest V3 de Chrome)
+#  - Reglas de ESLint sobre el código fuente
+#  - Formato de Prettier sobre archivos de código y documentación
+# ============================================================
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - 'feature/**'
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  lint-and-validate:
+    name: Lint y validación
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Build con esbuild
+        run: npm run build  
+
+      - name: Validar manifest.json
+        run: npm run validate:manifest
+
+      - name: Ejecutar ESLint
+        run: npm run lint
+
+      - name: Verificar formato con Prettier
+        run: npm run format:check

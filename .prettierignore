@@ -1,0 +1,11 @@
+# Bundle generado por esbuild en tiempo de build. No es código fuente.
+src/content/content.bundle.js
+
+# Dependencias y artefactos
+node_modules/
+package-lock.json
+
+# Binarios y archivos no formateables
+*.png
+*.jpg
+*.pdf

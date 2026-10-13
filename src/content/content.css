@@ -1,0 +1,86 @@
+:root {
+  /* Colores base (tema claro tipo crema, amigable para dislexia) */
+  --clrtxt-bg: #fdf6e3;
+  --clrtxt-bg-accent: #e8c39e;
+  --clrtxt-text: #2d2d2d;
+  --clrtxt-text-muted: #6b6b6b;
+  --clrtxt-primary: #4a90d9;
+  --clrtxt-primary-hover: #357abd;
+  --clrtxt-control-bg: rgba(255, 255, 255, 0.25);
+  --clrtxt-control-bg-hover: rgba(255, 255, 255, 0.4);
+  --clrtxt-shadow: rgba(0, 0, 0, 0.18);
+  --clrtxt-highlight: #ffe08a;
+
+  /* Tipografía: sans-serif legible, buen interlineado para dislexia */
+  --clrtxt-font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --clrtxt-font-size-base: 16px;
+  --clrtxt-line-height: 1.8;
+  --clrtxt-letter-spacing: 0.02em;
+
+  /* Capas: los elementos de ClariText van por encima de casi todo */
+  --clrtxt-z-floating: 2147483000;
+  --clrtxt-z-player: 2147483100;
+
+  /* Espaciado y bordes */
+  --clrtxt-radius: 14px;
+  --clrtxt-gap: 12px;
+}
+
+/*
+ * Reset acotado: aplica solo a elementos de ClariText (prefijo clrtxt-).
+ * Neutraliza herencias del sitio anfitrión sin afectar la página.
+ */
+[class^='clrtxt-'],
+[class*=' clrtxt-'] {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--clrtxt-font-family);
+  line-height: normal;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--clrtxt-text);
+}
+
+/* Los botones de ClariText no heredan estilos de botones del sitio. */
+button[class^='clrtxt-'],
+button[class*=' clrtxt-'] {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Tooltip custom para botones deshabilitados (ej. pausa con voz Online). */
+.clrtxt-player-btn[data-tooltip] {
+  position: relative;
+}
+
+.clrtxt-player-btn[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  font-size: 12px;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 2147483200;
+}
+
+.clrtxt-player-btn[data-tooltip]:hover::after {
+  opacity: 1;
+}

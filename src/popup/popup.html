@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ClariText</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="clrtxt-popup">
+      <header class="clrtxt-popup-header">
+        <div class="clrtxt-popup-logo">
+          <span class="clrtxt-popup-logo-icon">C</span>
+          <div>
+            <h1 class="clrtxt-popup-title">ClariText</h1>
+            <p class="clrtxt-popup-subtitle">Accesibilidad para tu navegación</p>
+          </div>
+        </div>
+      </header>
+
+      <nav class="clrtxt-popup-nav" role="tablist" aria-label="Módulos disponibles">
+        <!-- Los iconos se generan dinámicamente por popup.js -->
+      </nav>
+
+      <main
+        class="clrtxt-popup-content"
+        id="clrtxt-section-container"
+        role="tabpanel"
+        aria-live="polite"
+      >
+        <!-- Cada sección renderiza su contenido aquí. -->
+      </main>
+
+      <footer class="clrtxt-popup-footer" id="clrtxt-section-footer">
+        <!-- Cada sección puede aportar su pie informativo aquí. -->
+      </footer>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
